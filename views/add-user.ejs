@@ -3,28 +3,34 @@
         <div class="row">
 
             <div class="card w-50 my-5 mx-auto">
-                <div class="card-header bg-primary text-white my-2">Header</div>
+                <div class="card-header bg-dark text-white my-2 mx-0">Add User</div>
                 <div class="card-body">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com">
-                    </div>
+                    <form action="/add" method="post" id="add-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" name="email" class="form-control" id="email"
+                                placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">phone</label>
+                            <input type="tel" name="phone" class="form-control" id="phone"
+                                placeholder="Enter your phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Select image</label>
+                            <input type="file" name="image" class="form-control" id="image" placeholder="select file"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="submit" name="submit" value="Add User" class="btn btn-dark btn-md" />
+                        </div>
+                    </form>
                 </div>
             </div>
 

@@ -1,5 +1,23 @@
 <%- include("layout/header") %>
-<div class="container">
-    <h1>content</h1>
-</div>
-<%- include("layout/footer") %>
+    <div class="container">
+        <table class="table table-dark table-striped w-75 my-5 mx-auto text-center">
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>
+                    <a class="btn btn-danger btn-sm" href="#">Delete</a>
+                    <a class="btn btn-outline-success btn-sm" href="#">Edit</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <%- include("layout/footer") %>
