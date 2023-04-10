@@ -1,23 +1,52 @@
 <%- include("layout/header") %>
     <div class="container">
-        <table class="table table-dark table-striped w-75 my-5 mx-auto text-center">
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Actions</th>
-            </tr>
-            <tr>
-                <td>Image</td>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Phone</td>
-                <td>
-                    <a class="btn btn-danger btn-sm" href="#">Delete</a>
-                    <a class="btn btn-outline-success btn-sm" href="#">Edit</a>
-                </td>
-            </tr>
-        </table>
+        <% if(message) { %>
+            <div class="alert alert-dismissble fade show  alert-<%= message?.type %> w-75 my-5 mx-auto" role="alert">
+                <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="close"></button>
+                <strong>
+                    <%= message?.message%>
+                </strong>
+            </div>
+            <% }%>
+
+                <% if(users.length> 0 ) { %>
+                    <table class="table table-dark table-striped w-75 my-5 mx-auto text-center">
+                        <tr>
+                            <th>No</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+
+                        <% users.forEach((user,index)=> {%>
+                            <tr>
+                                <td>
+                                    <%= index+1 %>
+                                </td>
+                                <td><img src="<%=user.image %>" alt="image missing" width="50" class="img-thumbnail" />
+                                </td>
+                                <td>
+                                    <%= user.name %>
+                                </td>
+                                <td>
+                                    <%= user.email %>
+                                </td>
+                                <td>
+                                    <%= user.phone %>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm" href="/delete/<%= user._id%>">Delete</a>
+                                    <a class="btn btn-outline-success btn-sm" href="/edit/<%= user._id%>">Edit</a>
+                                </td>
+                            </tr>
+                            <% });%>
+                    </table>
+                    <% } else { %>
+                        <div class="mx-auto my-5 w-75 text-center">
+                            <h3>Empty User List</h3>
+                        </div>
+                        <% } %>
     </div>
     <%- include("layout/footer") %>

@@ -24,16 +24,17 @@ app.use((req, res, next) => {
 
 
 //view engine settings
+app.use(express.static(__dirname + '/uploads'))
 app.set('views', path.join(__dirname + "/views"));
 app.set("view engine", "ejs");
 
 mongoose.connect(process.env.DB_URI)
-    .then((res) => {
-        console.log("DB connected successfully");
-    })
-    .catch((err) => {
-        console.log("Unable to connect to MongoDB. Error: " + err);
-    });
+.then((res) => {
+    console.log("DB connected successfully");
+})
+.catch((err) => {
+    console.log("Unable to connect to MongoDB. Error: " + err);
+});
 
 
 app.use("/", router);
